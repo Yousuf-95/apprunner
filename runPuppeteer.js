@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 
-const main = async () => {
+const runPuppeteer = async () => {
     try{
         const browser = await puppeteer.launch({
             headless: true,
@@ -18,10 +18,14 @@ const main = async () => {
         console.log(title);
         
         await browser.close();
+
+        return {status: 200, message: 'Puppeteer executed successfully'};
     }
     catch(error){
         console.log(error);
     }
 }
 
-main();
+module.exports = runPuppeteer;
+
+// main();
